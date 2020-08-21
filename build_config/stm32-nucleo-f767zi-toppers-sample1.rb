@@ -105,5 +105,5 @@ MRuby::CrossBuild.new('nucleo-f767zi-tp') do |conf|
 #  conf.gem :core => "mruby-string-ext"
   conf.gem "#{MRUBY_ROOT}/../mruby-stm-nucleo-toppers"
   conf.gem "#{MRUBY_ROOT}/../mruby-tlsf"
-  conf.gem "#{MRUBY_ROOT}/../mruby-sample1"
+  conf.gem "#{MRUBY_ROOT}/../mruby-toppers-sample1"
 end
