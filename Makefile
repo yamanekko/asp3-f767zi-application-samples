@@ -158,7 +158,7 @@ endif
 #
 #  mrubyのパス
 #
-MRUBY_PATH = ../../mruby3
+MRUBY_PATH = ../../mruby
 
 #
 #  共通コンパイルオプションの定義
