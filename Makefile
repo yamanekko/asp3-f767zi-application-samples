@@ -201,7 +201,7 @@ ifdef APPLDIRS
 	INCLUDES := $(INCLUDES) $(foreach dir,$(APPLDIRS),-I$(dir))
 endif
 
-INCLUDES := $(INCLUDES) -I$(MRUBY_PATH)/include -I$(SRCDIR)/library
+INCLUDES := $(INCLUDES) -I$(MRUBY_PATH)/include -I$(MRUBY_PATH)/../mruby-tlsf/include -I$(SRCDIR)/library
 
 #
 #  システムサービスに関する定義
