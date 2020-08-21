@@ -49,6 +49,7 @@ MRuby::CrossBuild.new('nucleo-f767zi-tp') do |conf|
     cc.command = "#{GNU_TOOL_PREFX}gcc"
 
     cc.include_paths << ["#{MRUBY_ROOT}/build/"]
+    cc.include_paths << ["#{MRUBY_ROOT}/../mruby-tlsf/include/"]
     cc.include_paths << TOPPERS_INCLUDES.map{|inc| File.join(TOPPRES_ROOT, inc)}
 
     # toppersにあわせる
