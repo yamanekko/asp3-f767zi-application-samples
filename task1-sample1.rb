@@ -1,6 +1,6 @@
 PORT_ID = 1
 logger = Nucleo::Serial.new(PORT_ID)
-logger.syslog("###-- task1 active\r\n")
+logger.syslog("###-- task1 active")
 loop = Nucleo::Sample1.new()
 que = Nucleo::DataQue.new(Nucleo::DATA_QUE1_ID)
 counter = 0

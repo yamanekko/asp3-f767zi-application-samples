@@ -1,9 +1,7 @@
 PORT_ID = 1
 # mruby特有の初期化
 @logger = Nucleo::Serial.new(PORT_ID)
-@clock = Nucleo::Clock.new()
-loop = Nucleo::Sample1.new()
-@logger.syslog("### main task initialize: #{Nucleo::TASK1_ID}")
+@logger.syslog("### main task initialize TASK1_ID= #{Nucleo::TASK1_ID}")
 task1_que = Nucleo::DataQue.new(Nucleo::DATA_QUE1_ID)
 
 # タスクの起動
