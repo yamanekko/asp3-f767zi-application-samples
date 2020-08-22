@@ -72,12 +72,9 @@ MRuby::CrossBuild.new('nucleo-f767zi-tp') do |conf|
     #cc.defines << %w(MRB_GC_STRESS)
     cc.defines << %w(MRB_DISABLE_STDIO) #if you dont need stdio.
     #cc.defines << %w(POOL_PAGE_SIZE=1000) #effective only for use with mruby-eval
-    cc.defines << %w(MRB_ENABLE_ALL_SYMBOLS)
-    cc.defines << %w(MRB_METHOD_T_STRUCT)
-    cc.defines << %w(MRB_IV_SEGMENT_SIZE=4)
     cc.defines << %w(TOPPERS)
   end
-
+  
   conf.cxx do |cxx|
     cc = conf.cc
     cxx.command = cc.command.dup
