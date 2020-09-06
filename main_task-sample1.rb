@@ -1,7 +1,7 @@
 PORT_ID = 1
 # mruby特有の初期化
 @logger = Nucleo::Serial.new(PORT_ID)
-@logger.syslog("### main task initialize TASK1_ID= #{Nucleo::TASK1_ID}")
+@logger.syslog("### 0907 02:10 main task initialize: #{Nucleo::TASK1_ID}")
 task1_que = Nucleo::DataQue.new(Nucleo::DATA_QUE1_ID)
 task2_que = Nucleo::DataQue.new(Nucleo::DATA_QUE2_ID)
 task3_que = Nucleo::DataQue.new(Nucleo::DATA_QUE3_ID)
@@ -9,8 +9,8 @@ task3_que = Nucleo::DataQue.new(Nucleo::DATA_QUE3_ID)
 # タスクの起動
 Nucleo::Task.active(Nucleo::TASK1_ID)
 @logger.syslog("### main task task1 active")
-#TODO Nucleo::Task.active(Nucleo::TASK2_ID)
-#TODO log("$$ main task task2 active")
+# Nucleo::Task.active(Nucleo::TASK2_ID)
+# log("### main task task2 active")
 #TODO Nucleo::Task.active(Nucleo::TASK3_ID)
 #TODO log("$$ main task task3 active")
 
@@ -31,20 +31,20 @@ while true
     case @task_no
     when Nucleo::TASK1_ID
       task1_que.force_send(command)
-      @logger.syslog("que1: #{command}")
+      @logger.syslog("que1: #{command}")  # for debug
     when Nucleo::TASK2_ID
       task2_que.force_send(command)
-      @logger.syslog("que2: #{command}")
+      @logger.syslog("que2: #{command}")  # for debug
     when Nucleo::TASK3_ID
       task3_que.force_send(command)
-      @logger.syslog("que3: #{command}")
+      @logger.syslog("que3: #{command}")  # for debug
     end
   when 66 #B
     @logger.syslog("main: B")
-#TODO    Nucleo::Task.stop_alarm(Nucleo::ALMHDR1)
+    Nucleo::Task.stop_alarm(Nucleo::ALMHDR1)
   when 98 #b
     @logger.syslog("main: b")
-#TODO  Nucleo::Task.start_alarm(Nucleo::ALMHDR1, 5000)
+  Nucleo::Task.start_alarm(Nucleo::ALMHDR1, 5000)
 when 108 #l
     @logger.syslog("main: l")
 #TODO      Nucleo::Task.stop_alarm(@task_no)
@@ -86,7 +86,7 @@ when 108 #l
 #TODO      end
   when 116 #t
     @logger.syslog("main: t")
-#TODO      Nucleo::Task.terminate(@task_no)
+      Nucleo::Task.termination(@task_no)
 =begin
 when 62 #>
     @logger.syslog("main: >")

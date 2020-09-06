@@ -361,6 +361,7 @@ cpuexc_handler(void *p_excinf)
 void
 cyclic_handler(intptr_t exinf)
 {
+	syslog(LOG_NOTICE, "## cyclic\r\n");
 	SVC_PERROR(rot_rdq(HIGH_PRIORITY));
 	SVC_PERROR(rot_rdq(MID_PRIORITY));
 	SVC_PERROR(rot_rdq(LOW_PRIORITY));
@@ -375,6 +376,7 @@ cyclic_handler(intptr_t exinf)
 void
 alarm_handler(intptr_t exinf)
 {
+	syslog(LOG_NOTICE, "## alarm\r\n");
 	SVC_PERROR(rot_rdq(HIGH_PRIORITY));
 	SVC_PERROR(rot_rdq(MID_PRIORITY));
 	SVC_PERROR(rot_rdq(LOW_PRIORITY));
