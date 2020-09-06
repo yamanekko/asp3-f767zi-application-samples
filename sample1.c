@@ -228,6 +228,20 @@ task1(intptr_t exinf)
 }
 
 void
+task2(intptr_t exinf)
+{
+	syslog(LOG_INFO, "C: task2 start\n");	// Cレベルでは呼び出せていることの確認用ログ
+	consume_time(task_loop);
+}
+
+void
+task3(intptr_t exinf)
+{
+	syslog(LOG_INFO, "C: task3 start\n");	// Cレベルでは呼び出せていることの確認用ログ
+	consume_time(task_loop);
+}
+
+void
 task(intptr_t exinf)
 {
 	int_t		n = 0;

@@ -86,6 +86,8 @@
 
 extern void	task(intptr_t exinf);
 extern void	task1(intptr_t exinf);
+extern void	task2(intptr_t exinf);
+extern void	task3(intptr_t exinf);
 extern void	main_task(intptr_t exinf);
 extern void exc_task(intptr_t exinf);
 #ifdef INTNO1
