@@ -9,5 +9,12 @@
 * slp_tsk
 * tslp_tsk
 * dly_tsk
+* dis_ter
+* ena_ter
+* sta_alm
+* 
 
 その他のAPIは追加予定
+
+## その他の機能
+* データキュー
