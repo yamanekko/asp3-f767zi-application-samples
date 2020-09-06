@@ -194,11 +194,12 @@ task1(intptr_t exinf)
 
 	//Rubyの中からTOPPERSの定数を使えるようにする
 	struct RClass * nucleo = mrb_class_get(mrb_task1, "Nucleo");
-	mrb_define_const(mrb_task1, nucleo, "DATA_QUE1_ID", mrb_fixnum_value(DTQ1));
+	mrb_define_const(mrb_task1, nucleo, "DATA_QUE_ID", mrb_fixnum_value(DTQ1));
 	mrb_define_const(mrb_task1, nucleo, "MAIN_TASK_ID", mrb_fixnum_value(MAIN_TASK));
 	mrb_define_const(mrb_task1, nucleo, "TASK1_ID", mrb_fixnum_value(TASK1));
+	mrb_define_const(mrb_task1, nucleo, "TASK_NO", mrb_fixnum_value(1));
 
-	#include "task1_rb.h"	// mrubyのバイトコード
+	#include "task_rb.h"	// mrubyのバイトコード
   mrb_value ret = mrb_load_irep(mrb_task1, code);
 	if(mrb_task1->exc){	//exception objectが設定されているか
 		// mrubyの実行はできたが、エラーになって終了した
