@@ -3,6 +3,8 @@ PORT_ID = 1
 @logger = Nucleo::Serial.new(PORT_ID)
 @logger.syslog("### main task initialize TASK1_ID= #{Nucleo::TASK1_ID}")
 task1_que = Nucleo::DataQue.new(Nucleo::DATA_QUE1_ID)
+task2_que = Nucleo::DataQue.new(Nucleo::DATA_QUE2_ID)
+task3_que = Nucleo::DataQue.new(Nucleo::DATA_QUE3_ID)
 
 # タスクの起動
 Nucleo::Task.active(Nucleo::TASK1_ID)
@@ -29,10 +31,13 @@ while true
     case @task_no
     when Nucleo::TASK1_ID
       task1_que.force_send(command)
-#      @logger.syslog("que1: #{command}")
-#TODO    when Nucleo::TASK2_ID
-#TODO    when Nucleo::TASK3_ID
-    else
+      @logger.syslog("que1: #{command}")
+    when Nucleo::TASK2_ID
+      task2_que.force_send(command)
+      @logger.syslog("que2: #{command}")
+    when Nucleo::TASK3_ID
+      task3_que.force_send(command)
+      @logger.syslog("que3: #{command}")
     end
   when 66 #B
     @logger.syslog("main: B")
@@ -66,10 +71,10 @@ when 108 #l
     @task_no = Nucleo::TASK1_ID
   when 50 #2
     @logger.syslog("main: 2")
-#TODO    @task_no = Nucleo::TASK2_ID
+    @task_no = Nucleo::TASK2_ID
   when 51 #3
     @logger.syslog("main: 3")
-#TODO    @task_no = Nucleo::TASK3_ID
+    @task_no = Nucleo::TASK3_ID
   when 97 #a
     @logger.syslog("main: a :#{@task_no}")
     Nucleo::Task.active(@task_no)

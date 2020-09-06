@@ -482,6 +482,8 @@ dly_tsk(1000000);
 
 	struct RClass * nucleo = mrb_class_get(mrb, "Nucleo");
 	mrb_define_const(mrb, nucleo, "TASK1_ID", mrb_fixnum_value(TASK1));
+	mrb_define_const(mrb, nucleo, "TASK2_ID", mrb_fixnum_value(TASK2));
+	mrb_define_const(mrb, nucleo, "TASK3_ID", mrb_fixnum_value(TASK3));
 	mrb_define_const(mrb, nucleo, "MAIN_TASK_ID", mrb_fixnum_value(MAIN_TASK));
 	mrb_define_const(mrb, nucleo, "DATA_QUE1_ID", mrb_fixnum_value(DTQ1));
 	mrb_define_const(mrb, nucleo, "DATA_QUE2_ID", mrb_fixnum_value(DTQ2));
